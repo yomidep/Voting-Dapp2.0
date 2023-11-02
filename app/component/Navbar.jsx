@@ -12,9 +12,15 @@ import {
   zerionWallet,
   rainbowWallet,
 } from "@thirdweb-dev/react";
+import { useAddress } from "@thirdweb-dev/react";
+
+
 
 
 const Navbar = () => {
+
+  const address = useAddress();
+  
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#0e1c25] bg-opacity-90 ">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-0">
