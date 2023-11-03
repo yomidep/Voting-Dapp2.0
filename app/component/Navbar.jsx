@@ -19,7 +19,7 @@ import { useAddress } from "@thirdweb-dev/react";
 
 const Navbar = () => {
 
-  const address = useAddress();
+  const address_ = useAddress();
   
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#0e1c25] bg-opacity-90 ">
@@ -28,7 +28,7 @@ const Navbar = () => {
           href={"/"}
           className="text-5xl text-white font-semibold items-center justify-center flex"
         >
-          <Image src={logo} className="w-20 p-3 cursor-pointer rounded-full" />
+          <Image src={logo} className="w-20 p-3 cursor-pointer rounded-full" alt=" LOGOMAN "/>
           <p className="text-white px-3 text-lg">PowerArk</p>
         </Link>
         {/* ========== for mobile menu =========== */}

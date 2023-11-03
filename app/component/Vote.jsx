@@ -1,15 +1,16 @@
 import React from "react";
 import contractABI from "../contractABI";
-import address from "../component/Navbar";
 import { ethers } from "ethers";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
+import { useAddress } from "@thirdweb-dev/react";
 
 
 const Vote = () => {
 
   const { enqueueSnackbar } = useSnackbar();
   const contractAddress = "0xe0655aE86d1ae7662A3E63C46F077ED4fE58A6da";
+  const address_ = useAddress();
 
   const [value, setValue] = useState("");
 
@@ -25,7 +26,7 @@ const Vote = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       await provider.send("eth_requestAccounts", []);
       const signer = await provider.getSigner();
-      const address = await signer.getAddress();
+      const address = await address_;
       let receipt;
       const votingContract = new ethers.Contract(
         contractAddress,
@@ -34,7 +35,7 @@ const Vote = () => {
       );
 
       const voterInfo = await votingContract.voters(address);
-      const hasVoted = voterInfo.vote;
+      const hasVoted = voterInfo.voteI;
       console.log(hasVoted);
 
       if (hasVoted) {

@@ -18,6 +18,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={img1}
+            alt="Operational Expenses"
           />
           <p className="text-gray-300 text-xs">
             {" "}
@@ -34,6 +35,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={img2}
+            alt="Operational Projects"
           />
           <p className="text-gray-300 text-xs">
             With Research Projects, we aim to foster innovation and explore new
@@ -49,6 +51,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={gamefi}
+            alt="Proposal"
           />
           <p className="text-gray-300 text-xs">
             The objective of this voting proposal is to implement a robust
@@ -65,6 +68,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={web3}
+            alt="Crypto Education"
           />
           <p className="text-gray-300 text-xs">
             The Crypto Education proposal aims to enhance our members' knowledge
@@ -79,6 +83,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={hackathon}
+            alt="Hackathon"
           />
           <p className="text-gray-300 text-xs">
             The Hackathon proposal aims to organize an exciting and
@@ -93,6 +98,7 @@ const CardSection = () => {
           <Image
             className="w-64 items-center justify-center rounded-3xl px-3 py-7"
             src={ethereum}
+            alt="GovernanCE tOKEN"
           />
           <p className="text-gray-300 text-xs">
             Governance Token aims to provide a decentralized governance platform
