@@ -14,7 +14,6 @@ const Vote = () => {
   const [value, setValue] = useState("");
 
   const handleInput = (event) => {
-    const inputValue = event.target.checked ? event.target.value : "";
     setValue(inputValue);
     console.log(inputValue);
   };
@@ -25,7 +24,7 @@ const Vote = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       await provider.send("eth_requestAccounts", []);
       const signer = await provider.getSigner();
-      const address = await provider.getAddress();
+      const address = await signer.getAddress();
       let receipt;
       const votingContract = new ethers.Contract(
         contractAddress,
@@ -34,8 +33,8 @@ const Vote = () => {
       );
 
       const voterInfo = await votingContract.voters(address);
-      const hasVoted = voterInfo.voteI;
-      console.log(hasVoted);
+      const hasVoted = voterInfo.voteD;
+      console.log(voterInfo);
 
       if (hasVoted) {
         alert("Already Voted");
@@ -45,7 +44,9 @@ const Vote = () => {
       }
 
       //proceed with voting
-      const transaction = await votingContract.votingTime(value);
+      console.log("Value before votingTime call:", value);
+      const transaction = await votingContract.votingTime(value, { gasLimit: 300000 });
+     
 
       receipt = await wait(transaction);
 
@@ -65,7 +66,8 @@ const Vote = () => {
         <select
           id="proposal"
           name="proposal"
-          onChange={handleInput}
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
           className="text-black bg-transparent border text-sm p-3 rounded-lg"
         >
           <option value="0">Operational Expenses</option>
